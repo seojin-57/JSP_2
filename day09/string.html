@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let url = "https://www.NAVER.com/index.html";
+        document.write("<p>문자열 : " + url + "</P>");
+
+        // 문자열의 글자 수 리턴
+        let len = url.length;
+        document.write("<p>문자열의 길이 : " + len + "</P>");
+
+        // 파라미터로 설정된 위치의 글자를 리턴
+        let str = url.charAt(4);
+        document.write("<p>글자 위치 : " + str + "</P>");
+        
+        // 파라미터로 전달된 글자가 처음 나타나는 위치를 리턴
+        let position = url.indexOf(":");
+        document.write("<p>':'이 처음 나타나는 위치 : " + position + "</P>");
+
+        // 파라미터로 전달된 글자가 마지막으로 나타나는 위치
+        let position2 = url.lastIndexOf("/");
+        document.write("<p>'/'가 마지막에 나타나는 위치 : " + position2 + "</P>");
+
+        // 잘라내기, 시작과 끝 위치를 파라미터로 설정
+        let substring = url.substring(0, 5);
+        document.write("<p>문자열 자르기 : " + substring + "</P>");
+
+        // 두 번째 파라미터가 없을 경우 끝까지 자른다
+        let substring2 = url.substring(7);
+        document.write("<p>문자열 자르기 : " + substring2 + "</P>");
+
+        // 모든 글자를 대문자로 변환
+        let up = url.toUpperCase();
+        document.write("<p>대문자 변환 : " + up + "</P>");
+
+        // 모든 글자를 소문자로 변환
+        let low = url.toLocaleLowerCase();
+        document.write("<p>대문자 변환 : " + low + "</P>");
+    </script>
+</body>
+</html>

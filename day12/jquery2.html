@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="button" id="pure" value="pure">
+    <input type="button" id="jquery" value="jquery">
+
+    <script>
+        // pure 버튼을 클릭했을 때, alert으로 'pure' 띄우기
+        let target = document.getElementById("pure");
+        target.addEventListener('click', function(event){
+            alert("pure");
+        });
+
+        // jquery
+        $("#jquery").on('click', function(event){
+            alert('jquery');
+        });
+    </script>
+</body>
+</html>

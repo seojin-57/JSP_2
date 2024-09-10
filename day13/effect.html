@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>.hind(), .show() 사용</h1>
+    <p>
+        <button id="btnHide">문장 숨기기</button>
+        <button id="btnShow">문장 표시하시</button>
+    </p>
+    <div>안녕하세요. jQuery입니다.</div>
+    <script>
+        $("#btnHide").on('click', function(){
+            $("div").hide(1000);
+        });
+        $("#btnShow").on('click', function(){
+            $("div").show("fast");
+        });
+    </script>
+</body>
+</html>

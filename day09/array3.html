@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myarray = [
+            ['java', 'dbms', 'javascript'],
+            ['react', 'springboot', 'jpa']
+        ];
+
+        for(let i=0; i<myarray.length; i++){ // 행
+            for(let j=0; j<myarray[i].length; j++){ // 열
+                document.write("<p>" + myarray[i][j] + "</p>");
+            }
+        }
+    </script>    
+</body>
+</html>

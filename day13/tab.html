@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /** 기본 초기화 */
+        *               { padding: 0; margin: 0; }
+        ul              { list-style: none;}
+        .pull-left      { float: left; }
+        .clearfix:after { content: ''; display: block; float: none; clear: both; }
+        .hide           { display: none; }
+        
+        /** 탭 박스의 기본 크기와 중앙 정렬 및 상하 여백 */
+        .tab { width: 500px; margin: 20px auto; }
+
+        /** 개별 버튼에 대한 기본 크기와 가로 정렬 */
+        .tab-button-item { width: 100px; height: 40px; }
+
+        /** 현재 활성 탭의 배경 이미지 별도 처리 */
+        .tab-button-item-link.selected { background: url("img/tab_selected.jpg"); }
+
+        /** 탭 버튼의 기본 배경 처리와 글자 형태 처리 */
+        .tab-button-item-link {
+            background: url("img/tab.jpg");
+            display: block;
+            color: #222;
+            line-height: 40px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /** 내용영역의 태두리처리 및 상단으로 -1px 이동시킴.
+         *  버튼 영역과 1px 겹치게 처리해서 활성 탭이 뚫려 있는 효과 연출 */
+        .tab-panel {
+            border: 1px solid #9FB7D4;
+            position: relative;
+            top: -1px;
+            padding: 20px 10px;
+        }
+
+        /** 탭 버튼의 초기화 및 레이어 띄우기 > 내용영역과 1px 겹쳐져야 한다. */
+        .tab-button {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <!-- 탭의 전체 박스 -->
+    <div class="tab">
+        <!-- 탭 버튼 영역 -->
+        <ul class="tab-button clearfix">
+            <li class="tab-button-item pull-left">
+                <a class="tab-button-item-link selected" href="#tab-page-1">HTML5</a>
+            </li>
+            <li class="tab-button-item pull-left">
+                <a class="tab-button-item-link" href="#tab-page-2">jQuery</a>
+            </li>
+            <li class="tab-button-item pull-left">
+                <a class="tab-button-item-link" href="#tab-page-3">Bootstrap3</a>
+            </li>
+        </ul>
+        <!-- 내용영역 -->
+        <div class="tab-panel">
+            <div id="tab-page-1"><h3>탭 페이지 1</h3></div>
+            <div id="tab-page-2" class="hide"><h3>탭 페이지 2</h3></div>
+            <div id="tab-page-3" class="hide"><h3>탭 페이지 3</h3></div>
+        <div>
+    </div>
+    <script>
+         $(".tab-button-item-link").click(function(e){
+            // href 페이지 이동 방지
+            e.preventDefault();
+
+            // 클릭된 요소(=this) 를 제외한 나머지(=not this)에게 selected 클래스 제거
+            $(".tab-button-item-link").not(this).removeClass("selected");
+            
+            // 클릭된 요소에게 selected 클래스 적용
+            $(this).addClass("selected");
+
+            let target = $(this).attr('href');
+            $(target).removeClass('hide');
+            $(".tab-panel > div").not($(target)).addClass('hide');
+        });
+    </script>
+</body>
+</html>

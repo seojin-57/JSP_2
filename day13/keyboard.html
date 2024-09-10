@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text"> 입력란에 키보드로 내용을 입력하세요.
+    <h1>jquery .keypress()</h1>
+    <p id="text"></p>
+    <h1>jquery .keydown()</h1>
+    <p id="text2"></p>
+
+    <script>
+        let i = 0;
+        $("input").keypress(function(){
+            $("#text").text((++i) + "빈 키보드가 눌렸습니다.");
+        });
+        let j = 0;
+        $("input").keydown(function(){
+            $("#text2").text((++j) + "빈 키보드가 눌렸습니다.");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" id="listener" 
+        placeholder="여기에 입력하세요."/>
+    <div>
+        <p>keycode = <span id="result1">0</span></p>
+        <p>enter press = <span id="result2">none</span></p>
+    </div>
+    <script>
+        $("#listener").keyup(function(e){
+            $("#result1").html(e.keyCode);
+
+            if( e.keyCode == 13 ){
+                $("#result2").html("엔터키가 눌러졌습니다.");
+            } else {
+                $("#result2").html("none");
+            }
+        });
+    </script>
+</body>
+</html>

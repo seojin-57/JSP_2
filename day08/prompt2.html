@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            prompt창으로 id를 입력받아오고,
+            해당 id값이 admin과 일치하면
+                -> prompt창으로 pw를 입력받아오고,
+                prompt창으로 pw를 입력받아오고,
+                해당 pw값이 1234와 일치하면
+                    -> alert, 인증했습니다.
+                일치하지 않으면
+                    -> alert, 인증에 실패했습니다.    
+            일치하지 않으면
+                -> alert, 인증에 실패했습니다.
+        */
+
+        var id = prompt('아이디를 입력해주세요');
+        if (id == 'admin') {
+            var pw = prompt('pw를 입력하세요.')
+            if (pw ==1234) {
+                alert('인증했습니다.')
+            }
+            else {
+            alert("인증에 실패했습니다.");
+        }
+        }
+        else {
+            alert("인증에 실패했습니다.");
+        }
+    </script>
+</body>
+</html>

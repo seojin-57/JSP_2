@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "오늘,날씨,매우,습함";
+
+        // ,를 기준으로 문자열을 잘라내, 배열로 리턴
+        let data = str.split(",");
+
+        for (let i=0; i<data.length; i++) {
+            document.write("<h1>" + data[i] + "</h1>");
+        }
+    </script>
+</body>
+</html>

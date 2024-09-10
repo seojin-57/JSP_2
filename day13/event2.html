@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- bind(), click() 메세드를 사용해서 이벤트 작성해도
+     내부적으로 on() 메서드를 이용해서 이벤트 핸들러와 바인딩 -->
+    <h1>on \()</h1>
+    <p>여기를 클릭해주세요</p>
+    <script>
+        $("p").on('click', function(){
+            alert("문장이 클릭되었습니다.");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 배열이 단순 숫자값이 아니라. 객체가 할당된 값을 가진다면 indexof는 사용하기 힘듦
+        // 그 때 사용하는 것이 findIndex
+        const arr = [
+            {color : "red"},
+            {color : "black"},
+            {color : "blue"},
+            {color : "green"},
+            {color : "blue"}
+        ];
+        console.log(arr.findIndex((elm)=> elm.color === "green"));
+
+        // find : 만족하는 요소 자체를 반환함
+        const element = arr.find((elm) => {
+            return elm.color == "blue";
+        });
+        console.log(element);
+
+        // filter : color가 blue인 값만 가져오기
+        // 특정 조건에 맞는 요소를 배열로 다시 반환
+        console.log(arr.filter((elm) => elm.color == "blue"));
+    </script>
+</body>
+</html>

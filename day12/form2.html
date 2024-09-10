@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form1">
+        이름 : <input type="text" name="user_name" id="user_name"/>
+        <input type="button" value="전송" onclick="validation()"/>
+    </form>
+    <script>
+        function validation(){
+            // id 값에 의한 획득 방법
+            let input = document.getElementById('user_name');
+
+            // form태그에 지정되는 name 속성을 통하여 객체 획득
+            let form = document.form1;
+            let user_name = form.user_name;
+
+            if( !user_name.value ){
+                // 이름이 입력되지 않았을 경우에 처리
+                alert("이름을 입력해 주세요!!");
+            }
+
+        }
+    </script>
+</body>
+</html>

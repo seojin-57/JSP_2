@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 비어있는 객체 생성
+        let people = {};
+
+        // 객체 안에 변수를 포함
+        people.name = "hsj";
+        people.gender = "F";
+
+        // 프로퍼티(=멤버 변수)의 사용
+        document.write("<h1>" + people.name + "님은 " + people.gender + "입니다.</h1>");
+
+        // key의 값으로 name, gender가 순차적으로 할당되기 때문에 people[key]를 통해서 객체의 값을 알아낼 수 있음
+        for (key in people) {
+            document.write("key : " + key + ", value : " + people[key] + "<br>");
+        }
+    </script>
+</body>
+</html>

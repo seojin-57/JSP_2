@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.parent{
+            width: 250px;
+            border: 5px solid grey;
+            background-color: green;
+            margin: auto;
+        }
+        div.child{
+            width: 200px;
+            height: 100px;
+            border: 5px solid goldenrod;
+            background-color: powderblue;
+            margin: auto;
+        }
+        /*
+            가상클래스 after, before
+            - 특정 요소의 시작 태그의 직전과 종료태그의 직후에
+            가상의 inline-level요소를 생성한다.
+        */
+        /* 시작태그 직후 */
+        .parent:before{
+            content: 'parent의 before'; 
+            display: block;
+            color: black;
+        }
+        /* 종료태그 직전 */
+        .parent:after{
+            content: 'parent의 after'; 
+            display: block;
+            color: black;
+        }
+        /* 시작태그 직후 */
+        .child:before{
+            content: 'child의 before'; 
+            display: block;
+            color: blue;
+        }
+        /* 시작태그 직전 */
+        .child:after{
+            content: 'child의 after'; 
+            display: block;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <!-- .parent before -->
+        <div class="child">
+            <!-- .child before -->
+            박스1
+            <!-- .child after -->
+        </div>
+        <!-- .parent after -->
+    </div>
+</body>
+</html>
+
+
+
+
+
+

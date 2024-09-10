@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let s = ['이유덕', '이재영', '권종표', '이재영', '박민호', 
+        '강상희','이재영', '김지완', '최승혁', '이성연', '박영서',
+        '박민호', '전경헌', '송정환', '김재성', '이유덕', '전경헌'];
+        
+        // 1. function naming1()
+        // 김씨와 이씨는 각각 몇명인가요?
+        // 결과 : kim: 2, lee : 6
+        function naming1(){
+            let kim = 0;
+            let lee = 0;
+
+            for(let i=0; i<s.length; i++){
+                if( s[i][0] === "이" ){
+                    lee++;
+                }
+                if( s[i][0] === "김" ){
+                    kim++;
+                }                
+            }
+
+            return "kim : " + kim + ", lee : " + lee;
+        }
+        document.write(naming1() + "<br/>");
+
+
+        // 2. function naming2(param)
+        // '이재영'이란 이름이 몇 번 반복되나요?
+        // 결과 : 이재영 : 3
+        function naming2(param){
+            let count = 0;
+            for(let i=0; i<s.length; i++){
+                if(s[i] === param){
+                    count++;
+                }   
+            }
+            return param + " : " + count;
+        }
+        document.write(naming2("이재영") + "<br/>");
+
+
+        // 3. function naming3()
+        // 중복된 이름을 아에 제거한 리스트 return
+        // 결과 : 권종표,강상희,김지완,최승혁,이성연,박영서,송정환,김재성
+        function naming3(){
+            let uniq = [];
+            for(let i=0; i<s.length; i++){
+                let uni_count = 0;
+
+                for(let j=0; j<s.length; j++){
+                    // i와 j가 같다면 uni_count 증가
+                    if( s[i] == s[j] ){
+                        uni_count++;
+                    }
+                }
+                if( uni_count < 2 ){
+                    uniq.push(s[i]);
+                }
+            }
+
+            return uniq;
+        }
+        document.write(naming3() + "<br/>");
+        
+    </script>
+</body>
+</html>

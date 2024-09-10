@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>.off()</h1>
+    <button id="btn">버튼 클릭 가능</button>
+    <button id="btnBind">버튼 클릭을 가능하게 합니다.</button>
+    <button id="btnUnbind">버튼 클릭을 불가능하게 합니다.</button>
+    <div></div>
+    <script>
+        function action() {
+        $('div').append("버튼 이벤트<br>");
+        }
+        $("#btn").on('click', function(){
+            action();
+        });
+        $("#btnUnbind").on('click', function(){
+            $("#btn").off("click").text("버튼 클릭 불가능");
+        });
+        // btnBind 클릭 시, btn 버튼 click 이벤트, "버튼 클릭 가능"
+        $("#btnBind").on('click', function(){
+            $("#btn").on("click").text("버튼 클릭 가능");
+        });
+
+        // $("#btnBind").on('click', function(){
+        //   $("#btn").on("click", function(){
+        //      action(); 
+        //     }).text("버튼 클릭 가능");
+        //  });
+    </script>
+</body>
+</html>

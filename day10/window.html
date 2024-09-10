@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>window 객체</h1>
+    <h3>open 메서드 확인</h3>
+    <div>
+        <a href="#" onclick="open1(); return false;">새 창 열기</a>
+    </div>
+    <div>
+        <a href="#" onclick="open2(); return false;">팝업 창 열기</a>
+    </div>
+    <script>
+        function open1() {
+            window.open('open.html');
+        }
+
+        function open2() {
+            window.open('open.html', '', 'width=300, height=500, scrollbars=no');
+        }
+    </script>
+</body>
+</html>

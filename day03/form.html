@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>폼</h1>
+    <form action="regist.jsp" enctype="multipart/form-data">
+        <p>아이디 : <input type="text" id="id" name="id" maxlength="20" placeholder="아이디를 입력하세요." required></p>
+        <p>비밀번호 : <input type="password" id="pw" name="pw" maxlength="20" placeholder="비밀번호를 입력하세요." required></p>
+        <fieldset>
+            <legend>성별 선택하기</legend>
+            <div>
+                <label>
+                    남자 <input type="radio" name="gender" value="men" checked> 
+                </label>
+                <label>
+                    여자 <input type="radio" name="gender" value="women">
+                </label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>좋아하는 과목</legend>
+            <div>
+                <label>
+                    JAVA<input type="checkbox" name="subject" value="JAVA" checked>
+                </label>
+                <label>
+                    JSP<input type="checkbox" name="subject" value="JSP" checked>
+                </label>
+                <label>
+                    HTML<input type="checkbox" name="subject" value="HTML" checked>
+                </label>
+                <label>
+                    CSS<input type="checkbox" name="subject" value="CSS">
+                </label>
+            </div>
+        </fieldset><br>
+        직업 : <select name="job">
+                    <option value="student">학생</option>
+                    <option value="teacher">선생님</option>
+                    <option value="developer">개발자</option>
+                </select><br>
+        <p><input type="file" name="photo" id="'photo"></p>
+        <p>자기소개</p>
+        <p><textarea name="memo" placeholder="자기소개를 입력하세요." maxlength="200" cols="45" rows="5"></textarea></p>
+        <p>우편 번호 : <input type="text" name="mail" id="mail" readonly> <button type="button">우편 번호</button></p>
+        <p>주소 : <input type="text" name="address" id="address"></p>
+        <p>상세 주소 : <input type="text" name="detail" id="detail"></p>
+        <p>참고 사항 : <input type="text" name="notice" id="notice" disabled></p>
+        <input type="reset" value="다시쓰기">
+        <input type="submit" value="확인">
+        <hr>
+    </form>
+</body>
+</html>

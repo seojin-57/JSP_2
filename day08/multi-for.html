@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("<table border='1' style='text-align:center'>");
+        for (var i=0; i<6; i++) {
+            document.write("<tr>");
+            for (var j=0; j<7; J++) {
+                var text = "(" + i + "," + j + ")";
+                document.write("<td>" + text + "</td>");
+            }
+            document.write("</tr>");
+            j = 0;
+        }
+        document.write("</table>");
+    </script>
+</body>
+</html>

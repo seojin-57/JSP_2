@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .link {
+            padding: 0 15px;
+            display: block;
+            text-decoration: none;
+            border-top: 1px dotted #ccc;
+            line-height: 50px;
+            width: auto;
+            /* 대상:frist-child : 여러 개 요소 중에 첫번쨰 요소*/ 
+        }
+        a:last-child {
+            border-bottom: 1px dotted #ccc;
+        }    
+        a:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="link">메뉴 항목1</a>
+    <a href="#" class="link">메뉴 항목2</a>
+    <a href="#" class="link">메뉴 항목3</a>
+    <a href="#" class="link">메뉴 항목4</a>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /** 하나의 입력 영역을 정의하는 <div>태그 */
+            .input_group {
+            height: 42px;
+            border-bottom: 1px dotted #ccc;
+            font: 1em/40px '돋움', 'Helvetica';
+         }
+         
+         /** 입력양식의 제목을 볼 수 있게 하는 태그 */
+         .input_group > label {
+            width: 80px; display: inline-block;
+         }
+    </style>
+</head>
+<body>
+    <form name="form1" onsubmit="doSubmit(); return false;">
+        <fieldset>
+           <legend>회원가입</legend>
+           <div class="input_group first">
+              <label>이름</label>
+              <input type="text" name="user_name"/>
+           </div>
+           <div class="input_group">
+              <label>성별</label>
+              <label><input type="radio" name="gender" value="M"> 남자</label>
+              <label><input type="radio" name="gender" value="F"> 여자</label>
+           </div>
+           <div class="input_group">
+              <label>직업</label>
+              <select name="job">
+                 <option>----- 선택하세요 -----</option>
+                 <option value="dev">프로그래머</option>
+                 <option value="pub">퍼블리셔</option>
+              </select>
+           </div>
+           <div class="input_group">
+              <label>취미</label>
+              <label><input type="checkbox" value="축구" name="hobby"> 축구</label>
+              <label><input type="checkbox" value="농구" name="hobby"> 농구</label>
+              <label><input type="checkbox" value="야구" name="hobby"> 야구</label>
+           </div>
+           <div class="input_group">
+              <label>&nbsp;</label>
+              <input type="submit" name="button" value="제출" />
+              <input type="button" name="button2" value="리셋" />
+           </div>
+        </fieldset>
+     </form>
+
+     <script>
+        function doSubmit() {
+            // 폼 객체
+            let frm = document.form1;
+
+            // text 요소의 입력여부 검사
+            if (!frm.user_name.value) {
+                alert('이름을 입력해주세요');
+                frm.user_name.fouse();
+                return false; // 경고창 하나씩 나오게 함
+            }
+
+            // 라디오 버튼 입력 여부 검사
+            if (!frm.gender[0].checked && !frm.gender[1].checked) {
+                alert('성별을 선택해주세요');
+                return false;
+            }
+
+            // select 요소에 대한 선택 위치 검사
+            if (frm.job.selectedIndex < 1) {
+                alert("직업을 선택해주세요");
+                frm.job.fouse();
+                return false;
+            }
+
+            // 체크 박스 선택 여부 검사
+            let chk = false;
+            for (let i=0; i<frm.hobby.length; i++) {
+                if(frm.hobby[i].checked) {
+                    chk = true;
+                    break;
+                }
+            }
+            if(!chk) {
+                alert("취미를 선택해주세요");
+                return false;
+            }
+
+            // 입력 확인하기
+            if (confirm("입력하신 내용이 맞습니까?")) {
+                frm.submit();
+            }
+        }
+     </script>
+</body>
+</html>

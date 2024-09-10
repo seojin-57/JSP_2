@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="myform">
+        <label>
+            <input type="checkbox" class="hobby" 
+                value="soccer"/> 축구
+        </label>
+        <label>
+            <input type="checkbox" class="hobby" 
+                value="basketball"/> 농구
+        </label>
+        <label>
+            <input type="checkbox" class="hobby" 
+                value="baseball"/> 야구
+        </label>
+        <button type="submit">입력값 확인</button>
+        <hr/>
+        <div id="result"></div>
+    </form>
+    <script>
+        $("#myform").submit(function(e){
+            e.preventDefault();
+
+            // 선택된 항목을 가져온다.-> 배열
+            let check_list = $(".hobby:checked");
+
+            // 배열의 길이가 0이면 선택된 항목이 없다는 뜻
+            if( check_list.length == 0 ){
+                alert("선택된 항목이 없습니다.");
+                return false;
+            }
+
+            $.each(check_list, function(index, item){
+                let vaule = $(item).val();
+                $("#result").append("<div>" + vaule + "</div>");
+            });
+
+        });
+    </script>
+</body>
+</html>

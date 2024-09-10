@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="myform">
+        <label>
+            <input type="radio" name="subject" value="html">HTML
+        </label>
+        <label>
+            <input type="radio" name="subject" value="css">CSS
+        </label>
+        <label>
+            <input type="radio" name="subject" value="javascript">Javascript
+        </label>
+        <button type="submit">입력값 확인</button>
+    </form>
+    <script>
+        $("#myform").submit(function(e){
+            e.preventDefault();
+
+            let value = $("input[name='subject']:checked").val();
+            if (!value) {
+                alert("선택된 항목은 " + value + "입니다");
+                return false;
+            }
+            
+            alert("선택된 항목은 " + value + "입니다");
+        // 백엔드 페이지에게 데이터를 전송
+        // $(this).submit();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [1, 2, 3, 4];
+        console.log(arr);
+
+         /*
+            arr배열의 요소 각각에 * 2를 한 값을
+            새로운 배열 newArr에 할당 후 console.log로 출력
+        */
+
+        const newArr = [];
+        arr.forEach(function(elm){
+            newArr.push(elm * 2);
+        });
+        console.log(newArr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            margin: 10px auto;
+            border: 5px solid #ccc;
+            padding: 30px;
+            text-align: center;
+         }
+         
+         .box2 {
+            margin: 10px auto;
+            border: 10px solid #ff00ff;
+            background-color: #ff0;
+            padding: 25px;
+            text-align: left;
+         }
+    </style>
+</head>
+<body>
+    <h1>CSS 제어하기</h1>
+    <h1>CSS 제어하기</h1>
+    <div id="box" class="box1"><h1>테스트 영역 입니다.</h1></div>
+    <input type="button" value="(폰트) red" onclick="setFontColor('#f00')" />
+    <input type="button" value="(폰트) green" onclick="setFontColor('#0f0')" />
+    <input type="button" value="(폰트) blue" onclick="setFontColor('#00f')" />
+
+    <input type="button" value="(배경) red" onclick="setBgColor('#f00')" />
+    <input type="button" value="(배경) green" onclick="setBgColor('#0f0')" />
+    <input type="button" value="(배경) blue" onclick="setBgColor('#00f')" />
+
+    <input type="button" value="width=50%" onclick="setWidth('50%')" />
+    <input type="button" value="width=auto" onclick="setWidth('auto')" />
+
+    <input type="button" value="box1 클래스 적용" onclick="changeClass('box1')" />
+    <input type="button" value="box2 클래스 적용" onclick="changeClass('box2')" />
+    <script>
+        function setFontColor(color) {
+            // id값이 box인 요소
+            let box = document.getElementById("box");
+            box.style.color = color;
+        }
+
+        function setBgColor(color) {
+            document.getElementById("box").style.backgroundColor = color;
+        }
+
+        function setWidth(width) {
+            document.getElementById("box").style.width = width;
+        }
+
+        function changeClass(cls) {
+            document.getElementById('box').className = cls;
+        }
+    </script>
+</body>
+</html>

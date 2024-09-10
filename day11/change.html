@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="result"></p>
+    <input type="text" id="target">
+    <script>
+        // change는 폼 컨트롤의 값이 변경되었을 때 발생하는 이벤트
+        // 입력을 끝내고 focus를 빠져나왔을 때 발생
+        let t = document.getElementById("target");
+        t.addEventListener('change', function(event) {
+            document.getElementById('result').innerHTML = event.target.value;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let grades = {
+            list : {aa : 10, bb : 20, cc : 30},
+            show : function(){
+                document.write('Hello World');
+            }
+        }
+        document.write(grades['list']);
+        document.write("<br>");
+        document.write(grades['list']['bb'])
+        document.write("<br>");
+        document.write(grades.list);
+        document.write("<br>");
+        document.write(grades.list.cc);
+        document.write("<br>");
+        document.write(grades['show']);
+        document.write("<br>");
+        document.write(grades['show']());
+        document.write("<br>");
+        document.write(grades.show());
+    </script>
+</body>
+</html>

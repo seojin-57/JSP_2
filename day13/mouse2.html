@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .event-box {
+            border: 5px solid #007;
+            background: #d5d5d5;
+            color: #009;
+            font-size: 32px;
+            padding: 50px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="listener" class="event-box">
+        Mouse Here
+    </div>
+    <script>
+        $('#listener').hover(
+        function(){ // mouseenter
+            $('#listener').html("마우스가 들어왔습니다.")
+        }, function(){ // mouseleave
+            $('#listener').html("마우스가 빠져나갔습니다.")
+        });
+    </script>
+</body>
+</html>

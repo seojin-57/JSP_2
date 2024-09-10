@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+</head>
+<body>
+    <h1>.toggle()</h1>
+    <p>
+        <button id="btnToggle">문장 토글</button>
+    </p>
+    <div>안녕하세요. jQuery입니다</div>
+    <script>
+        $("#btnToggle").on('click', function(){
+            $("div").toggle(1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <ul id="first">
+        <li class="foo">list item 1</li>
+        <li>list item 2</li>
+        <li class="bar">list item 3</li>
+    </ul>
+    <ul id="second">
+        <li class="foo">list item 1</li>
+        <li>list item 2</li>
+        <li class="bar">list item 3</li>
+    </ul>
+    <script>
+        $("#first").find('.foo').css('background-color', 'tomato').end()
+        .find('.bar').css('background-color', 'green')
+    </script>
+</body>
+</html>

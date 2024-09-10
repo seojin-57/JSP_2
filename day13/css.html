@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style type="text/css">
+        .box1 {
+            margin: 10px auto; border: 5px solid #ccc; padding: 30px; text-align: center;
+        }
+
+        .box2 {
+            margin: 10px auto; border: 10px solid #ff00ff; background-color: #ff0; 
+            padding: 25px; text-align: left; 
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box1"><h1>테스트 영역 입니다.</h1></div>
+    <input type="button" id="btn1" value="(폰트) red" />
+    <input type="button" id="btn2" value="(폰트) green" />
+    <input type="button" id="btn3" value="(폰트) blue" />
+    <input type="button" id="btn4" value="(배경) red" />
+    <input type="button" id="btn5" value="(배경) green" />
+    <input type="button" id="btn6" value="(배경) blue" />
+    <input type="button" id="btn7" value="width=50%" />
+    <input type="button" id="btn8" value="width=auto" />
+    <input type="button" id="btn9" value="box1 클래스 적용" />
+    <input type="button" id="btn10" value="box2 클래스 적용" />
+    
+    <script>
+        $("#btn1").click(function(){
+            $('#box').css("color", "tomato");
+        });
+        $("#btn2").click(function(){
+            $('#box').css("color", "green");
+        });
+        $("#btn3").click(function(){
+            $('#box').css("color", "powderblue");
+        });
+
+        // #btn0과 #btn10 -> #box에 적용되어있는 class 토글 처리
+        $("#btn9, #btn10").click(function(){
+            $("#box").toggleClass("box1 box2")
+        });
+    </script>
+</body>
+</html>

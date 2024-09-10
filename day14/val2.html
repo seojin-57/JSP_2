@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="myform">
+        <div>
+            <label>사용자 이름
+                <input type="text" name="username" id="username">
+            </label>
+        </div>
+        <div>
+            <label>비밀번호
+                <input type="password" name="userpass" id="userpass">
+            </label>
+        </div>
+        <button type="submit">입력값 확인</button>
+        <hr>
+        <!-- 선텍 결과 표시할 div -->
+         <div id="result"></div>
+    </form>
+    <script>
+        // 폼에서 데이터 전송 이벤트
+        $("#myform").submit(function(e){
+            e.preventDefault();
+
+        // username에 값이 없을 경우 "이름을 입력하세요" alert()
+        let username = $("#username").val();
+        if (!username){
+            alert("이름을 입력해주세요");
+            $("#username").focus();
+            return false;
+        }
+
+        // userpass에 값이 없을 경우 "비밀번호를 입력하세요" alert()
+        let userpass = $("#userpass").val();
+        if (!userpass){
+            alert("비밀번호를 입력하세요");
+            $("#userpass").focus();
+            return false;
+        }
+
+        // 입력값을 화면에 표시  #result 에다가 이름 : 비밀번호 : 각각 표시
+        $("#result").append("<div>이름 : " + username + "</div>");
+        $("#result").append("<div>비밀번호 : " + userpass + "</div>");
+
+        // 백엔드 페이지에게 데이터를 전송
+        // $(this).submit();
+        });
+    </script>
+</body>
+</html>
