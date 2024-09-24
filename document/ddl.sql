@@ -21,7 +21,7 @@ CREATE TABLE MOVIE_DB(
 	movie_num		NUMBER(20) PRIMARY key,
 	movie_title		varchar2(300) NOT NULL,
 	movie_date		DATE NOT NULL,
-	movie_info		varchar2(2000),
+	movie_plot		varchar2(2000),
 	movie_genre		varchar2(300),
 	movie_poster	varchar2(1000),
 	movie_still_image	varchar2(1000),
