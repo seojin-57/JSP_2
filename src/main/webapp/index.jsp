@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body onload="location.href='/movie/MovieDBCheck.mv'">
-
+수정수정
 </body>
 </html>
