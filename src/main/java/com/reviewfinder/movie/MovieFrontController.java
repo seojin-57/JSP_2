@@ -28,8 +28,9 @@ public class MovieFrontController extends HttpServlet{
 		ActionForward forward = null;
 		
 		if(requestURI.equals("/movie/MovieBasicSetteing.mv")) {
-//			forward = new ActionForward(true,"/movie/insertdb.jsp");
 			forward = new MovieBasicInsertAction().execute(request, response);
+		}else if(requestURI.equals("/movie/InsertMovieDB.mv")) {
+			forward = new InsertMovieAction().execute(request, response);
 		}
 		
 		if(forward!=null) {

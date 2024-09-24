@@ -4,11 +4,12 @@ public class MovieDTO {
 	private int movie_num;
 	private String movie_title;
 	private String movie_date;
-	private String movie_info;
+	private String movie_plot;
 	private String movie_genre;
 	private String movie_poster;
 	private String movie_still_image;
 	private int movie_star_rate;
+	
 	public int getMovie_num() {
 		return movie_num;
 	}
@@ -27,11 +28,11 @@ public class MovieDTO {
 	public void setMovie_date(String movie_date) {
 		this.movie_date = movie_date;
 	}
-	public String getMovie_info() {
-		return movie_info;
+	public String getMovie_plot() {
+		return movie_plot;
 	}
-	public void setMovie_info(String movie_info) {
-		this.movie_info = movie_info;
+	public void setMovie_plot(String movie_plot) {
+		this.movie_plot = movie_plot;
 	}
 	public String getMovie_genre() {
 		return movie_genre;
@@ -57,4 +58,6 @@ public class MovieDTO {
 	public void setMovie_star_rate(int movie_star_rate) {
 		this.movie_star_rate = movie_star_rate;
 	}
+	
+	
 }
