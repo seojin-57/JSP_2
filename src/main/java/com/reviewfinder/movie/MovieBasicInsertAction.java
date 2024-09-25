@@ -17,7 +17,13 @@ public class MovieBasicInsertAction implements Action{
 		MovieDAO mdao = new MovieDAO();
 		
 		boolean checkMovieDB = mdao.checkMoiveDB();
-		if(checkMovieDB);
+		if(checkMovieDB) {	// DB에 있으면 메인 페이지로 이동
+			forward.setRedirect(true);
+			forward.setPath("/test.jsp");
+		}else {				// DB에 없으면 insertdb.jsp로 이동
+			forward.setRedirect(true);
+			forward.setPath("/movie/InsertMovieDB.mv");
+		}
 		
 		return forward;
 	}
