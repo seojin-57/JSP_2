@@ -6,10 +6,8 @@ import com.reviewfinder.action.Action;
 import com.reviewfinder.action.ActionForward;
 import com.reviewfinder.member.dao.MemberDAO;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.websocket.Session;
 
 public class LoginAction implements Action{
 
