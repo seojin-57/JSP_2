@@ -6,4 +6,10 @@
 	<select id="checkMoiveDB" resultType="_int">
 		SELECT count(*) FROM MOVIE_DB
 	</select>
+	<insert id="insertMovieDB" parameterType="moviedto">
+		INSERT INTO MOVIE_DB VALUES(
+		movie_seq.nextval, #{movie_title}, #{movie_date}, #{movie_plot}, 
+		#{movie_genre}, #{movie_poster}, #{movie_still_image}, #{movie_star_rate}
+		);
+	</insert>
 </mapper>
