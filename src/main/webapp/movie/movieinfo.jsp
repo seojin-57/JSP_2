@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <title>영화 제목 예시</title>
     <style>
+	    html {
+	    	color: #f7175a;
+	   		font-family: Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Malgun Gothic", sans-serif;
+		}
         /* 필요한 CSS 스타일을 여기에 추가하세요 */
         body {
             font-family: Arial, sans-serif;

@@ -35,9 +35,7 @@ public class InsertMovieAction implements Action{
 		mdao.insertMovieDB(boxOfficeList);
 		mdao.insertMovieDB(movieList);
 		
-		req.setAttribute("boxOfficeList", boxOfficeList);
-		
-		forward.setRedirect(false);
+		forward.setRedirect(true);
 		forward.setPath("/test.jsp");
 		
 		return forward;

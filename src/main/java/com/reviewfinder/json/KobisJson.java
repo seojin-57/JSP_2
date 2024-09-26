@@ -30,7 +30,7 @@ public class KobisJson extends APIController{
 		List<MovieDTO> movieList = new ArrayList<MovieDTO>();
 		MovieDTO moviedto = null;
 		String url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json";
-		url_key.put("url", url);	
+		url_key.put("url", url);
 		
 		String var = "movieNm";
 		String data = movieNm;
