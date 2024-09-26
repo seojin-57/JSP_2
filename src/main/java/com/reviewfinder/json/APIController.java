@@ -21,7 +21,15 @@ public class APIController {
 			urlBuilder.append("&" + URLEncoder.encode(var_data.get("var"+i), "UTF-8") + "=" + URLEncoder.encode(var_data.get("data"+i),"UTF-8"));
 		}
 		URL url = new URL(urlBuilder.toString());
+		System.out.println(urlBuilder);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		if(url_key.get("url").equals("https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json")){
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-type", "application/json");
 		// 상태 코드 출력

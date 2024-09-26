@@ -34,7 +34,7 @@ public class MovieDAO {
 			movie.add(moviemap.get(""+i+""));
 		}
 		for(int i=0;i<movie.size();i++) {
-			if(session.insert("Dbtest.insertMovieDB",movie)==1) {
+			if(session.insert("Dbtest.insertMovieDB",movie.get(i))==1) {
 				System.out.println("db저장 성공");
 			}else {
 				System.out.println("실패");
@@ -44,7 +44,7 @@ public class MovieDAO {
 	// 오버로딩
 	public void insertMovieDB(List<MovieDTO> movie) {
 		for(int i=0;i<movie.size();i++) {
-			if(session.insert("Dbtest.insertMovieDB",movie)==1) {
+			if(session.insert("Dbtest.insertMovieDB",movie.get(i))==1) {
 				System.out.println("db저장 성공");
 			}else {
 				System.out.println("실패");
