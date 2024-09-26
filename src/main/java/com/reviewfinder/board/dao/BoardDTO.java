@@ -2,57 +2,59 @@ package com.reviewfinder.board.dao;
 
 public class BoardDTO {
 
-	private int BoardNum;
-	private String Username;
-	private String BoardTitle;
-	private String BoardContents;
-	private String BoardDate;
-	private String Reply;
-	private String Category;
+	private int boardnum;
+	private String boardcate;
+	private String username;
+	private String boardtitle;
+	private String boardcontents;
+	private String boarddate;
+	private String adminreply;
 	
-	
-	public int getBoardNum() {
-		return BoardNum;
+	public int getBoardnum() {
+		return boardnum;
 	}
-	public void setBoardNum(int boardNum) {
-		BoardNum = boardNum;
+	public void setBoardnum(int boardnum) {
+		this.boardnum = boardnum;
+	}
+	public String getBoardcate() {
+		return boardcate;
+	}
+	public void setBoardcate(String boardcate) {
+		this.boardcate = boardcate;
 	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
-	public String getBoardTitle() {
-		return BoardTitle;
+	public String getBoardtitle() {
+		return boardtitle;
 	}
-	public void setBoardTitle(String boardTitle) {
-		BoardTitle = boardTitle;
+	public void setBoardtitle(String boardtitle) {
+		this.boardtitle = boardtitle;
 	}
-	public String getBoardContents() {
-		return BoardContents;
+	public String getBoardcontents() {
+		return boardcontents;
 	}
-	public void setBoardContents(String boardContents) {
-		BoardContents = boardContents;
+	public void setBoardcontents(String boardcontents) {
+		this.boardcontents = boardcontents;
 	}
-	public String getBoardDate() {
-		return BoardDate;
+	public String getBoarddate() {
+		return boarddate;
 	}
-	public void setBoardDate(String boardDate) {
-		BoardDate = boardDate;
+	public void setBoarddate(String boarddate) {
+		this.boarddate = boarddate;
 	}
-	public String getReply() {
-		return Reply;
+	public String getAdminreply() {
+		return adminreply;
 	}
-	public void setReply(String reply) {
-		Reply = reply;
+	public void setAdminreply(String adminreply) {
+		this.adminreply = adminreply;
 	}
-	public String getCategory() {
-		return Category;
-	}
-	public void setCategory(String category) {
-		Category = category;
-	}
+	
+	
+	
 	
 	
 	

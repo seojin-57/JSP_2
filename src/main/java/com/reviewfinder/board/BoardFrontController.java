@@ -35,6 +35,7 @@ public class BoardFrontController extends HttpServlet{
 		
 		case "/qnaboard/BoardList.bo":
 			//게시글 목록 노출
+			forward = new BoardListAction().execute(request, response);
 			break;	
 			
 		case "/qnaboard/Category_view.bo":
@@ -51,6 +52,7 @@ public class BoardFrontController extends HttpServlet{
 			
 		case "/qnaboard/BoardWriteOk.bo":
 			//게시글 작성(db에 반영)
+			forward = new BoardWriteOKAction().execute(request, response);
 			break;
 		
 		case "/qnaboard/UpdateWrite.bo":

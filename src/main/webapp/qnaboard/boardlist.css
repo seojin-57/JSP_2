@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+html {
+	  	  font-family: Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Malgun Gothic", sans-serif;
+	    }
+	    
+	    body {
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+		a:visited{
+			color:#f7175a;
+			text-decoration:none;
+		}
+		a:hover{
+			color:#f7175a;
+			text-decoration:none;
+			font-weight:bold;
+		}
+		a:link {
+			color:#f7175a;
+			text-decoration:none;
+		}
+		
+		
+		form {
+            border: 1px solid #f7175a; /* 테두리 색상 */
+            border-radius: 25px; /* 둥근 모서리 */
+               }
+               
+        .myqnachoice {
+            border: 0px solid #f7175a; 
+            border-radius: 25px; 
+            background-color: #f7175a; 
+            padding: 10px 20px; 
+            color : white;
+            width : 20%;
+        }
+        
+        .write{
+        	border: 1px solid #f7175a; 
+            border-radius: 25px; 
+            background-color: #f7175a; 
+            padding: 10px 20px; 
+            color : white;
+            
+        }
+        
+        .change-color{
+        	color: #f7175a;
+        }
+        
+        select[name="category"]{
+         	border: 1px solid #f7175a; 
+            border-radius: 25px; 
+            padding: 10px 25px; 
+            background-color: white;
+            width : 20%;
+            text-align: center;
+          }

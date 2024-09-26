@@ -3,4 +3,18 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "Board">
+	<select id="getBoardList" parameterType="hashmap" resultType="boardDTO">
+	SELECT * FROM (SELECT rownum R, A.* FROM 
+		(SELECT * FROM QNABOARD ORDER BY BOARDNUM DESC) A) B
+			WHERE b.R BETWEEN #{startRow} AND #{endRow}
+  	</select>
+
+	<select id="getBoardCnt" resultType="_int">
+		SELECT count(*) FROM QNABOARD
+  	</select>
+
+	<select id="getCategoryCnt" resultType="_int">
+	SELECT COUNT(*) FROM QNABOARD q WHERE BOARDCATE = #{boardcate}
+	</select>
+
 </mapper>
