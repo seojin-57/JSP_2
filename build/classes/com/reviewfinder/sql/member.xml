@@ -9,7 +9,7 @@
 		select count(*) FROM MEMBER WHERE userid = #{userid} and userpw = #{userpw}
 	</select>
 	
-	<insert id="join" parameterType="com.reviewfinder.beans.MemberDTO">
+	<insert id="join" parameterType="MemberDTO">
 		INSERT INTO MEMBER VALUES (#{userid}, #{userpw}, #{username}, 'BASIC', null)
 	</insert>
 
