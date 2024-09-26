@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../main/css_main.css" />    
+</head>
+<body>
+    <div>
+        <header class="header"></header>
+    </div>
+    <div>
+        <section>
+            <div>
+                <p>
+                    <h1>지금 뜨는 코멘트</h1>
+                    <span>더보기</span>
+                </p>
+                <div>
+                    <ul>
+                        <li>
+                            <!-- 유저 프로필 이미지 소스 -->
+                            <img src="" alt="">
+                            <a href="">닉네임</a>
+                            <div>
+                                별점
+                            </div><br>
+                            <!-- 포스터 이미지 소스 -->
+                             <div>
+                                <div>
+                                    <img src="" alt="">
+                                </div>
+                                <p>코멘트 제목</p>
+                                <p>코멘트 내용</p>
+                             </div>
+                             <div>
+                                <!-- 좋아요 개수 -->
+                                icon &nbsp;&nbsp; 0 
+                             </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <p>
+                    <h1>박스오피스 순위</h1>
+                    <span>더보기</span>
+                </p>
+                <ul>
+                    <li>
+                        <!-- 포스터 이미지 소스 -->
+                        <img src="" alt="">
+                        <div>
+                            <a href="">
+                                <p>영화제목</p>
+                                <p>출시일</p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p>
+                    <h1>추천 영화</h1>
+                    <span>더보기</span>
+                </p>
+                <ul>
+                    <li>
+                        <!-- 포스터 이미지 소스 -->
+                        <img src="" alt="">
+                        <div>
+                            <a href="">
+                                <p>영화제목</p>
+                                <p>출시일</p>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div>
+        <footer class="footer"></footer>
+    </div>
+    <script>
+        $(function(){
+            $("#header").load("/header/header.html");
+            $("#footer").load("/footer/footer.html");
+        });
+    </script>
+</body>
+</html>
