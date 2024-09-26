@@ -53,3 +53,7 @@ li {
 .lists > span {
     font-weight: bold;
 }
+
+span:hover {
+    color: 95aab4;
+}
