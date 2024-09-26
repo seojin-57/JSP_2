@@ -1,7 +1,5 @@
 package com.reviewfinder.join;
 
-import java.io.IOException;
-
 import com.reviewfinder.action.Action;
 import com.reviewfinder.action.ActionForward;
 import com.reviewfinder.member.dao.MemberDAO;
