@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+html {
+    font-family: "Apple SD Gothic Neo", 
+    "Nanum Gothic", 
+    "Malgun Gothic", 
+    sans-serif;
+}
+
+body {
+    margin: 0 auto;
+}
+
+#wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title {
+    text-align: center;
+    color: #fff;
+    background-color: #707070;
+    padding: 3px;
+    width: 100%;
+}
+
+#result img {
+    height: 800px;
+    width: 600px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+#restart {
+    width: 600px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: #f7175a;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.5em;
+}
