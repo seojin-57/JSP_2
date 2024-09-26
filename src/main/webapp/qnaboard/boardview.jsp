@@ -20,7 +20,7 @@
 	   width: 900px;
 	}
 	
-	/* style="border: 1px solid #f7175a; border-radius: 25px; */
+	
 	
 	    .BacktoList {
             border: 1px solid #f7175a; 
@@ -28,6 +28,14 @@
             background-color: #f7175a; 
             padding: 10px 20px; 
             color : white;
+        }
+        
+        .Answer{
+            border: 1px solid #f7175a; 
+            border-radius: 25px; 
+            color: #f7175a; 
+            padding: 10px 20px; 
+            background-color : white;
         }
         
         
@@ -41,13 +49,10 @@
          <tr height="30px">
             <th align="center" width="150px" style="color: #f7175a;">제 목</th>
             <td>${board.boardtitle }
-               <span style="font-weight:bold; color:#6a1b9a;float:right;">
-                  조회수 : ${board.boardreadcount }
-               </span>
             </td>
          </tr>
          <tr height="30px">
-            <th align="center" width="150px" style="color: #f7175a;">글쓴이</th>
+            <th align="center" width="150px" style="color: #f7175a;">작성자</th>
             <td>${board.username }</td>
          </tr>
          <tr height="300px">
@@ -59,23 +64,23 @@
       </table>
       
       <!-- 댓글 -->
-      <form name="replyForm" action="/board/AddReply.bo" method="post">
+      <form name="replyForm" action="/qnaboard/AddReply.bo" method="post">
          <input type="hidden" name="boardnum" value="${board.boardnum }">
          <table>
             <tr>
                <td align="center" width="200px" style="color: #f7175a;">
-                  관리자 답변<br><hr>
+                  관리자<br><hr>
                </td>
                <td style="padding-left:10px">
-                  <textarea name="replycontents" style="width:680px;height:85px;resize:none;"></textarea><br>
-                  <a href="javascript:document.replyForm.submit()">[등록]</a>
+                  <textarea name="replycontents" style="width:680px;height:85px;resize:none; border: 1px solid #f7175a; border-radius: 10px; "></textarea><br>
+                   <input type="button" value="답변하기" class="Answer" onclick="document.replyForm.submit();"></td>
                </td>
             </tr>
          </table>
       
       <!-- 댓글 리스트 -->
       <hr>
-         <table border="1">
+         <table>
             <c:choose>
 	    	   <c:when test = "${replylist != null and fn:length(replylist)>0 }">
 				<c:forEach var="reply" items="${replylist }">	
@@ -108,13 +113,13 @@
       <br/><br/>
    </div>
 	<div style="text-align: center;">
-      <input type="button" value="목록" class="BacktoList"><a href="board/BoardList.bo"></a>
+       <input type="button" value="목록" class="BacktoList" onclick="location.href='/qnaboard/BoardList.bo';"></td>
      </div>
    
    	<script>
    	
    	function updateReply(replynum, password){
-		let pw = prompt("댓글 비밀번호를 입력하세요.");
+		let pw = prompt("관리자 비밀번호를 입력하세요.");
 		if ( pw == password ){
 			document.replyForm.action = "/board/UpdateReply.bo?replynum="+replynum;
 			document.replyForm.submit();
@@ -129,7 +134,7 @@
    	}
    	
    	function deleteReply(replynum, password){
-   		let pw = prompt("댓글 비밀번호를 입력하세요.");
+   		let pw = prompt("관리자 비밀번호를 입력하세요.");
 		if ( pw == password ){
 			document.replyForm.action = "/board/DeleteReply.bo?replynum="+replynum;
 			document.replyForm.submit();

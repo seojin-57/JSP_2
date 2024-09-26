@@ -34,10 +34,7 @@
             color : #f7175a;
         }
         
-        option {
-            background-color: ##f7175a; /* hover 시 배경 색 변경 */
-        }
-        
+     
 	</style>
 </head>
 <body>
