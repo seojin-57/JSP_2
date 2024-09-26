@@ -11,7 +11,7 @@
 <body>
     <div id="wrap">
         <div id="title">
-            <h1>영화 추천 16강 1/4</h1>
+            <h1>영화 추천 16강 2/4</h1>
         </div>
         <div id="img">
             <div id="option_1">
