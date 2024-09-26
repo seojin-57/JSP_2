@@ -1,130 +1,151 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>영화 제목 예시</title>
-    <style>
-	    html {
-	    	color: #f7175a;
-	   		font-family: Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Malgun Gothic", sans-serif;
-		}
-        /* 필요한 CSS 스타일을 여기에 추가하세요 */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        .poster {
-            float: left;
-            width: 30%;
-        }
-        .details {
-            float: left;
-            width: 70%;
-            padding-left: 20px;
-        }
-        .section {
-            clear: both;
-            margin-top: 50px;
-        }
-        .section h2 {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-        }
-        .cast-list, .comment-list, .gallery {
-            list-style: none;
-            padding: 0;
-        }
-        .cast-item, .comment-item, .gallery-item {
-            margin-bottom: 15px;
-        }
-        .cast-item img, .gallery-item img {
-            width: 100px;
-            height: auto;
-        }
-        .comment-item {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영화 상세 페이지</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.movie-banner {
+    position: relative;
+    max-width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.movie-still-container {
+    /* position: relative; */
+}
+
+.movie-still {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.movie-info-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.movie-release-date, .movie-genre, .movie-runtime {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.movie-details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.movie-poster {
+    width: 200px;
+    margin-right: 20px;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.movie-rating {
+    flex-grow: 1;
+}
+
+.reviews {
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comments {
+    list-style: none;
+}
+
+.comments ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.comments li {
+    margin-bottom: 10px;
+}
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- 영화 제목과 기본 정보 -->
-        <h1>영화 제목 예시</h1>
-        <div class="poster">
-            <img src="poster_example.jpg" alt="영화 포스터" width="100%">
-        </div>
-        <div class="details">
-            <p>감독: 감독 이름 예시</p>
-            <p>출연: 배우 A, 배우 B, 배우 C</p>
-            <p>개봉일: 2023-01-01</p>
-            <p>줄거리: 이곳에 영화 줄거리가 들어갑니다. 이 영화는...</p>
-            <!-- 추가 정보들을 여기에 추가하세요 -->
-        </div>
+	<c:set var="movie" value="${requestScope.moviedto }"/>
+    <!-- 메인 콘텐츠 -->
+    <main>
+        <!-- 영화 스틸 이미지와 영화 정보 섹션 -->
+        <section class="movie-banner">
+            <!-- 영화 스틸 이미지 -->
+            <div class="movie-still-container">
+                <img src="${movie.movie_still_image }" alt="영화 스틸 이미지" class="movie-still">
+                <div class="movie-info-overlay">
+                    <h1 class="movie-title">${movie.movie_title}</h1>
+                    <p class="movie-release-date">상영 날짜: ${movie.movie_date}</p>
+                    <p class="movie-genre">장르: ${movie.movie_genre}</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- 출연/제작 섹션 -->
-        <div class="section">
-            <h2>출연/제작</h2>
-            <ul class="cast-list">
-                <!-- 출연진 리스트 예시 -->
-                <li class="cast-item">
-                    <img src="actor_a.jpg" alt="배우 A">
-                    <p>배우 A - 역할 A</p>
-                </li>
-                <li class="cast-item">
-                    <img src="actor_b.jpg" alt="배우 B">
-                    <p>배우 B - 역할 B</p>
-                </li>
-                <li class="cast-item">
-                    <img src="actor_c.jpg" alt="배우 C">
-                    <p>배우 C - 역할 C</p>
-                </li>
-            </ul>
-        </div>
+        <!-- 영화 포스터 및 평점 섹션 -->
+        <section class="movie-details">
+            <!-- 영화 포스터 -->
+            <div class="movie-poster">
+                <img src="${movie.movie_poster }" alt="영화 포스터">
+            </div>
 
-        <!-- 코멘트 섹션 -->
-        <div class="section">
-            <h2>코멘트</h2>
-            <ul class="comment-list">
-                <!-- 코멘트 리스트 예시 -->
-                <li class="comment-item">
-                    <p><strong>사용자1</strong></p>
-                    <p>이 영화 정말 재미있었어요!</p>
-                    <p><small>2023-10-01</small></p>
-                </li>
-                <li class="comment-item">
-                    <p><strong>사용자2</strong></p>
-                    <p>스토리가 인상적이었습니다.</p>
-                    <p><small>2023-10-02</small></p>
-                </li>
-            </ul>
-            <!-- 코멘트 작성 폼 -->
-            <form action="#" method="post">
-                <textarea name="comment" rows="5" cols="50" placeholder="코멘트를 작성하세요."></textarea><br>
-                <input type="submit" value="등록">
-            </form>
-        </div>
+            <!-- 영화 평점 -->
+            <div class="movie-rating">
+                <h2>평점: ${movie.movie_star_rate}</h2>
+                <%-- <p>${movie.ratingCount}명이 평가함</p> --%>
+            </div>
+        </section>
 
-        <!-- 갤러리 섹션 -->
-        <div class="section">
-            <h2>갤러리</h2>
-            <ul class="gallery">
-                <!-- 갤러리 이미지 예시 -->
-                <li class="gallery-item">
-                    <img src="gallery_image1.jpg" alt="갤러리 이미지 1">
-                </li>
-                <li class="gallery-item">
-                    <img src="gallery_image2.jpg" alt="갤러리 이미지 2">
-                </li>
-                <li class="gallery-item">
-                    <img src="gallery_image3.jpg" alt="갤러리 이미지 3">
-                </li>
-            </ul>
-        </div>
-    </div>
+        <!-- 리뷰 섹션 -->
+        <section class="reviews">
+            <div class="comments">
+                <h2>리뷰</h2>
+                <ul>
+                   <%--  <c:forEach var="comment" items="${movie.comments}">
+                        <li>${comment.user}: ${comment.text}</li>
+                    </c:forEach> --%>
+                </ul>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

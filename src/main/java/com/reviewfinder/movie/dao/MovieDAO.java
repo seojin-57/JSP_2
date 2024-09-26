@@ -52,5 +52,14 @@ public class MovieDAO {
 		}
 	}
 	
-	
+	public MovieDTO selectMovieFromDB(String movie_title, String movie_date) {
+		MovieDTO movie = new MovieDTO();
+		HashMap<String, String> title_date = new HashMap<String, String>();
+		title_date.put("movie_title", movie_title);
+		title_date.put("movie_date", movie_date);
+		
+		movie = session.selectOne("Dbtest.selectMovieFromDB",title_date);
+		
+		return movie;
+	}
 }
