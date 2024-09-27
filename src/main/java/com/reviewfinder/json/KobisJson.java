@@ -130,7 +130,13 @@ public class KobisJson extends APIController{
 		JSONObject objData = (JSONObject)new JSONParser().parse(boxOfficeData);
 		JSONObject boxOfficeResult = (JSONObject)objData.get("boxOfficeResult");
 		
-		JSONArray dailyBoxOfficeList = (JSONArray)boxOfficeResult.get("dailyBoxOfficeList");
+		JSONArray dailyBoxOfficeList = null;
+		
+		try{
+			dailyBoxOfficeList = (JSONArray)boxOfficeResult.get("dailyBoxOfficeList");
+		}catch (NullPointerException e) {
+			getBoxOffice(date);
+		}
 		
 		for(Object obj : dailyBoxOfficeList) {
 			JSONObject movieData = (JSONObject)obj;

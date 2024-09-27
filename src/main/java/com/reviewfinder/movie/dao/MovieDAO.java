@@ -50,7 +50,5 @@ public class MovieDAO {
 				System.out.println("실패");
 			}
 		}
-	}
-	
-	
+	}	
 }

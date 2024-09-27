@@ -7,6 +7,7 @@
 		<typeAlias type="com.reviewfinder.movie.dao.MovieDTO" alias="moviedto"/>
 		<typeAlias type="com.reviewfinder.member.dao.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.reviewfinder.board.dao.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.reviewfinder.rec.dao.RecDTO" alias="RecDTO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -14,7 +15,7 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
-				<property name="username" value="jspproject" />
+				<property name="username" value="project" />
 				<property name="password" value="1234" />
 			</dataSource>
 		</environment>
@@ -23,6 +24,7 @@
 		<mapper resource="com/reviewfinder/sql/dbtest.xml"/>
 		<mapper resource="com/reviewfinder/sql/member.xml"/>
 		<mapper resource="com/reviewfinder/sql/board.xml"/>
+		<mapper resource="com/reviewfinder/rec/dao/rec.xml"/>
 	</mappers>
 </configuration>
 
