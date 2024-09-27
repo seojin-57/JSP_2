@@ -8,5 +8,10 @@ import com.reviewfinder.mybatis.SqlMapConfig;
 public class MainMovieDAO {
 	SqlSessionFactory factory = SqlMapConfig.getFactory();
 	SqlSession session;
-
+	
+	public boolean getBoxMovie() {
+		boolean result = false;
+		
+		return result;
+	}
 }

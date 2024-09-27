@@ -32,7 +32,8 @@ public class MainFrontController extends HttpServlet{
 			forward = new MoveMainAction().execute(req, resp);
 		} else if(requestURI.equals("/mainBoxRank.ma")) { // 박스오피스 랭크 요청
 			forward = new SelectBoxRankAction().execute(req, resp);
-		}
+		} 
+		
 		
 		// 한꺼번에 보내기
 		if(forward != null) {

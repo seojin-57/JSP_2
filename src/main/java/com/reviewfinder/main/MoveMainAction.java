@@ -10,11 +10,9 @@ public class MoveMainAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
-		
-		System.out.println("main");
-		
+				
 		forward.setRedirect(true);
-		forward.setPath("/main/main.jsp");
+		forward.setPath("/mainBoxRank.ma");
 		
 		return forward;
 	}

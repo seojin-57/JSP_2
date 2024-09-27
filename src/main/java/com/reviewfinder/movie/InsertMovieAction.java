@@ -84,5 +84,4 @@ public class InsertMovieAction implements Action{
 
         return forward;
     }
->>>>>>> ad346f68fd92d5aed5a6bc9f6187ca1a3a6326d0
 }
