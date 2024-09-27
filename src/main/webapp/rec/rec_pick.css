@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+html {
+    font-family: "Apple SD Gothic Neo", 
+    "Nanum Gothic", 
+    "Malgun Gothic", 
+    sans-serif;
+}
+
+body {
+    margin: 0 auto;
+}
+
+#wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title {
+    text-align: center;
+    color: #fff;
+    background-color: #707070;
+    padding: 3px;
+    width: 100%;
+}
+
+#img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 600px;
+}
+
+#option_1 img, #option_2 img {
+    height: 800px;
+    width: 600px;
+    margin-top: 30px;
+}
+
+#option_1 img:hover, #option_2 img:hover {
+    transform: scale(1.05);
+}
+
+#vs img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+}

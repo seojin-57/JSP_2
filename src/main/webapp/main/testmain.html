@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스오피스 순위</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .movie {
+            width: 180px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .movie img {
+            width: 100%;
+            height: auto;
+        }
+
+        .movie-info {
+            padding: 10px;
+        }
+
+        .movie-info h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .movie-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .ranking {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>박스오피스 순위</h1>
+    <div class="container">
+        <!-- 영화 1 -->
+        <div class="movie">
+            <img src="https://via.placeholder.com/180x270" alt="베테랑2 포스터">
+            <div class="movie-info">
+                <div class="ranking">1</div>
+                <h2>베테랑2</h2>
+                <p>2024 ・ 한국</p>
+            </div>
+        </div>
+        <!-- 영화 2 -->
+        <div class="movie">
+            <img src="https://via.placeholder.com/180x270" alt="조커: 폴리 아 듀 포스터">
+            <div class="movie-info">
+                <div class="ranking">2</div>
+                <h2>조커: 폴리 아 듀</h2>
+                <p>2024 ・ 미국</p>
+            </div>
+        </div>
+        <!-- 영화 3 -->
+        <div class="movie">
+            <img src="https://via.placeholder.com/180x270" alt="대도시의 사랑법 포스터">
+            <div class="movie-info">
+                <div class="ranking">3</div>
+                <h2>대도시의 사랑법</h2>
+                <p>2024 ・ 한국</p>
+            </div>
+        </div>
+        <!-- 영화 4 -->
+        <div class="movie">
+            <img src="https://via.placeholder.com/180x270" alt="트랜스포머 ONE 포스터">
+            <div class="movie-info">
+                <div class="ranking">4</div>
+                <h2>트랜스포머 ONE</h2>
+                <p>2024 ・ 미국</p>
+            </div>
+        </div>
+        <!-- 영화 5 -->
+        <div class="movie">
+            <img src="https://via.placeholder.com/180x270" alt="비긴 어게인 포스터">
+            <div class="movie-info">
+                <div class="ranking">5</div>
+                <h2>비긴 어게인</h2>
+                <p>2013 ・ 미국</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
