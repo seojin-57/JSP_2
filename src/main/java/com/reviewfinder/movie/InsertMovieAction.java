@@ -31,7 +31,7 @@ public class InsertMovieAction implements Action{
         HashMap<String, MovieDTO> boxOfficeList = null;
         List<MovieDTO> movieList = null;
 
-        // ExecutorService를 사용하여 5초 제한 시간 설정
+        // ExecutorService를 사용하여 3초 제한 시간 설정
         ExecutorService executor = Executors.newFixedThreadPool(2);  // 두 개의 쓰레드 사용
        
         // boxOfficeList 작업
@@ -51,15 +51,15 @@ public class InsertMovieAction implements Action{
         };
 
         try {
-            // 각각 5초 안에 작업 실행
+            // 각각 3초 안에 작업 실행
             Future<HashMap<String, MovieDTO>> boxOfficeFuture = executor.submit(boxOfficeTask);
             Future<List<MovieDTO>> recommendFuture = executor.submit(recommendTask);
 
-            boxOfficeList = boxOfficeFuture.get(3, TimeUnit.SECONDS);  // 5초 제한
-            movieList = recommendFuture.get(3, TimeUnit.SECONDS);      // 5초 제한
+            boxOfficeList = boxOfficeFuture.get(3, TimeUnit.SECONDS);  // 3초 제한
+            movieList = recommendFuture.get(3, TimeUnit.SECONDS);      // 3초 제한
 
         } catch (TimeoutException e) {
-            // 5초가 넘었을 때 처리
+            // 3초가 넘었을 때 처리
             System.out.println("작업이 3초를 초과했습니다. 다시 시도합니다.");
             try {
                 // boxOffice와 recommendList 모두 재실행

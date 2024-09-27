@@ -1,19 +1,11 @@
 footer {
     width: 100%;
-    height: 472px;
+    height: 240px;
     font-family: Pretendard, "Apple SD Gothic Neo", "Nanum Gothic", "Malgun Gothic", sans-serif;
 }
 
 body {
     margin: 0px;
-}
-
-ul {
-    display: flex;
-    justify-content: left;
-    padding: 0;
-    margin: 13px 0 0;
-    list-style: none;
 }
 
 .top {
@@ -37,19 +29,22 @@ ul {
 }
 
 .bottom {
-    height: 352px;
+    height: 178px;
     padding: 20px 0px 38px;
     font-size: 13px;
     background-color: #1c1d1f;
     margin: 0;
 }
 
-li {
-    padding: 0;
-    margin: 0;
-    color: #95aab4;
+.content {
+    color: #575958;
+    margin-top: 20px;
+    margin-left: 200px;
+    
+    font-size: 15px;
 }
 
-.lists > span {
+.content a {
     font-weight: bold;
+    color: #95aab4;
 }

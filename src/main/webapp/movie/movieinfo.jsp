@@ -1,151 +1,97 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<html lang="ko">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>영화 상세 페이지</title>
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.movie-banner {
-    position: relative;
-    max-width: 100%;
-    height: 500px;
-    overflow: hidden;
-}
-
-.movie-still-container {
-    /* position: relative; */
-}
-
-.movie-still {
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
-}
-
-.movie-info-overlay {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.movie-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.movie-release-date, .movie-genre, .movie-runtime {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.movie-details {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.movie-poster {
-    width: 200px;
-    margin-right: 20px;
-}
-
-.movie-poster img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.movie-rating {
-    flex-grow: 1;
-}
-
-.reviews {
-    margin: 20px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.comments {
-    list-style: none;
-}
-
-.comments ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.comments li {
-    margin-bottom: 10px;
-}
-
-</style>
+<title>Insert title here</title>
+<link rel="stylesheet" href="/movie/movieinfo.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-	<c:set var="movie" value="${requestScope.moviedto }"/>
-    <!-- 메인 콘텐츠 -->
-    <main>
-        <!-- 영화 스틸 이미지와 영화 정보 섹션 -->
-        <section class="movie-banner">
-            <!-- 영화 스틸 이미지 -->
-            <div class="movie-still-container">
-                <img src="${movie.movie_still_image }" alt="영화 스틸 이미지" class="movie-still">
-                <div class="movie-info-overlay">
-                    <h1 class="movie-title">${movie.movie_title}</h1>
-                    <p class="movie-release-date">상영 날짜: ${movie.movie_date}</p>
-                    <p class="movie-genre">장르: ${movie.movie_genre}</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 영화 포스터 및 평점 섹션 -->
-        <section class="movie-details">
-            <!-- 영화 포스터 -->
-            <div class="movie-poster">
-                <img src="${movie.movie_poster }" alt="영화 포스터">
-            </div>
-
-            <!-- 영화 평점 -->
-            <div class="movie-rating">
-                <h2>평점: ${movie.movie_star_rate}</h2>
-                <%-- <p>${movie.ratingCount}명이 평가함</p> --%>
-            </div>
-        </section>
-
-        <!-- 리뷰 섹션 -->
-        <section class="reviews">
-            <div class="comments">
-                <h2>리뷰</h2>
-                <ul>
-                   <%--  <c:forEach var="comment" items="${movie.comments}">
-                        <li>${comment.user}: ${comment.text}</li>
-                    </c:forEach> --%>
-                </ul>
-            </div>
-        </section>
-    </main>
+	<c:set var="movie" value="${requestScope.moviedto }" />
+	<main>
+		<!-- 영화 스틸 이미지와 영화 정보 섹션 -->
+		<section class="movie-banner">
+			<!-- 스틸 이미지 -->
+			<div class="movie-still-container">
+				<img alt="영화 스틸 이미지" src="${movie.movie_still_image }" class="movie-still">
+				<!-- 영화 정보 div -->
+				<div class="movie-info-overlay">
+					<h1 class="movie-title">${movie.movie_title}</h1>
+					<p class="movie-release-date">상영 날짜: ${movie.movie_date}</p>
+					<p class="movie-genre">장르: ${movie.movie_genre}</p>
+				</div>
+			</div>
+			</section>
+		
+		<!-- 포스터, 별점 선택, 별점, 보고싶어요, 코멘트 줄거리 섹션 -->
+		<section class="movie-details">
+			<!-- 이미지 -->
+			<div class="movie-poster">
+				<img alt="영화 포스터" src="${movie.movie_poster }">
+			</div>
+			<!-- 별점 선택, 별점, 보고싶어요, 코멘트, 줄거리 div -->
+			<div>
+				<div class="movie-rating">
+					<!-- 별점 선택, 별점, 보고싶어요, 코멘트 섹션 -->
+					<section>
+						<div class="star-rating"><!-- 별점 선택 -->
+							<span class="star" data-value="1">&#9733;</span>
+							<span class="star" data-value="2">&#9733;</span>
+							<span class="star" data-value="3">&#9733;</span>
+							<span class="star" data-value="4">&#9733;</span>
+							<span class="star" data-value="5">&#9733;</span>
+						</div>
+						<div><!-- 별점 --></div>
+						<div><!-- 보고싶어요, 코멘트 --></div>
+					</section>
+				</div>
+				<hr/>
+				<!-- 줄거리 섹션 -->
+				<section>
+					<p><!-- 줄거리 -->
+						${movie.movie_plot }
+					</p>
+				</section>
+			</div>
+		</section>
+		
+		<!-- 출연/제작 섹션 -->
+		<section> <!-- 출연/제작 -->
+			<h3>출연/제작</h3>
+		</section>
+		
+		<!-- 코멘트 섹션 -->
+		<section>
+			<h3>코멘트</h3>
+		</section>
+		
+		<!-- 갤러리 섹션 -->
+		<section> <!-- 갤러리 -->
+			<h3>갤러리</h3>
+			<img alt="갤러리1" src="">
+			<img alt="갤러리2" src="">
+			<img alt="갤러리3" src="">
+		</section>
+		
+		<!-- 비슷한 작품 섹션 -->
+		<section>
+			<h3>비슷한 작품</h3>
+		</section>
+	</main>
+	<script src="/movie/movieinfo.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
