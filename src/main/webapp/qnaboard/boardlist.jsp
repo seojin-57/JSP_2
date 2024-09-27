@@ -14,15 +14,13 @@
 
 <body>
 	<div>
-		<form action="/qnaboard/category_view.bo" id="catechoice" style="display: inline-block; margin-right: 20px; border: 0px;">
-        	<select name="category" onclick="/qnaboard/Category_view.bo">
+         	<select name="category" onchange="location.href='/qnaboard/Category_view.bo?boardcate='+this.value;">
 	            <option value="카테고리">카테고리</option>
 	            <option value="공지">공지</option>
 	            <option value="추천">추천</option>
 	            <option value="문의">문의</option>            
 	        </select>
-    		<input type="button" value="내가 작성한 글만 보기" class="myqnachoice" onclick="location href='/qnaboard/Mywrite_view.bo'">
-    	
+    		<input type="button" value="내가 작성한 글만 보기" class="myqnachoice" onclick="location.href='/qnaboard/Mywrite_view.bo';">
 		<br/>
 		<br/>
 		<hr align="left" style="border-top: 2px solid #f7175a; width:100%;"/>
@@ -52,7 +50,7 @@
 		          <tr align="center" valign="middle" onmouseover="this.style.background='#bbdefb'"
 		            		onmouseout="this.style.background=''">
 		            <td height="23px" class="${board.boardcate == '공지' ? 'change-color' : ''}">${board.boardcate }</td>
-		               <td height="23px">${board.boardnum }</td>
+		               <td height="23px" class="${board.boardcate == '공지' ? 'change-num' : ''}">${board.boardnum }</td>
 		               <td height="23px"><a href="/qnaboard/BoardView.bo?boardnum=${board.boardnum }" > ${board.boardtitle }</a> </td>
 		               <td height="23px">${board.username }</td>
 		               <td height="23px">${board.boarddate }</td>
@@ -63,7 +61,7 @@
 		              <c:if test="${board.boardcate != '공지'}">
 		          <tr align="center" valign="middle" onmouseover="this.style.background='#bbdefb'"
 		            		onmouseout="this.style.background=''">
-		            <td height="23px" class="${board.boardcate  == '공지' ? 'change-color' : ''}">${board.boardcate }</td>
+		            <td height="23px">${board.boardcate }</td>
 		               <td height="23px">${board.boardnum }</td>
 		               <td height="23px"><a href="/qnaboard/BoardView.bo?boardnum=${board.boardnum }" > ${board.boardtitle }</a> </td>
 		               <td height="23px">${board.username }</td>
@@ -110,7 +108,7 @@
 				</tr>
 			</table>
 			
-
+	${requestScope.boardcate }
 	</div>
 
 </body>

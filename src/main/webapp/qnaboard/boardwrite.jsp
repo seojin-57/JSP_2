@@ -53,7 +53,7 @@
                   카테고리
                </th>
                <td>
-                  <select name="category">
+                  <select name="boardcate">
 		            <option disabled selected>유형을 선택하세요</option>
 		            <option id="noticeOption">공지</option>
 		            <option>추천</option>
@@ -74,7 +74,7 @@
                   작성자
                </th>
                <td>
-                  ${board.username }
+                  <input type="hidden" name="username" value="${board.username }">${board.username }
                </td>
             </tr>
             <tr height="300px">
@@ -99,8 +99,8 @@
  <script>
         function checkUserRole() {
             // 이 부분에 사용자 역할을 체크하는 로직 추가
-            let userRole = 'user'; // 예시: 현재 사용자 역할 (실제 로직에 맞게 변경)
-            if (userRole !== 'admin') {
+            let userRole = '${board.usergrade }'; // 예시: 현재 사용자 역할 (실제 로직에 맞게 변경)
+            if (userRole !== 'ADMIN') {
                 // admin이 아닌 경우 "공지" 옵션 제거
                 let noticeOption = document.getElementById('noticeOption');
                 if (noticeOption) {

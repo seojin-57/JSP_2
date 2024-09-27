@@ -17,7 +17,6 @@ public class BoardListAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		
-		// db조회, /app/board/boardlist.jps
 		BoardDAO bdao = new BoardDAO();
 
 		//전체 게시글 개수

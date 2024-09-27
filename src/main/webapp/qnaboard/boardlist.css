@@ -52,6 +52,18 @@ html {
         	color: #f7175a;
         }
         
+        .change-num {
+   			 position: relative; /* before/after 사용을 위한 position 설정 */
+    		color: transparent; /* 기존 텍스트 숨기기 */
+		}
+
+		.change-num::before {
+		    content: ''; 
+		    position: absolute; /* 절대 위치로 설정 */
+		    top: 0;
+		    left: 0;
+		}
+        
         select[name="category"]{
          	border: 1px solid #f7175a; 
             border-radius: 25px; 

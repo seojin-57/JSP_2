@@ -20,4 +20,5 @@
 	<select id="checkName" parameterType="string" resultType="_int">
 		select count(*) FROM MEMBER WHERE username = #{username}
 	</select>
+	
 </mapper>
