@@ -7,9 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 
 public class APIController {
 	// 기본URL + 요청 인자로 api 호출
@@ -24,6 +21,7 @@ public class APIController {
 		if(url_key.get("url").equals("https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json")) {
 			System.out.println(urlBuilder);
 		}
+		
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-type", "application/json");

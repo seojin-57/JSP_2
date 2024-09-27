@@ -22,20 +22,18 @@ import com.reviewfinder.movie.dao.MovieDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class InsertMovieAction implements Action {
-    private static final int TIMEOUT_SECONDS = 3;  // 제한 시간 설정
-
-    @Override
-    public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
+public class InsertMovieAction implements Action{
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
         ActionForward forward = new ActionForward();
 
         KobisJson kobisJson = new KobisJson();
         HashMap<String, MovieDTO> boxOfficeList = null;
         List<MovieDTO> movieList = null;
 
-        // ExecutorService를 사용하여 쓰레드 풀 생성
+        // ExecutorService를 사용하여 3초 제한 시간 설정
         ExecutorService executor = Executors.newFixedThreadPool(2);  // 두 개의 쓰레드 사용
-
+       
         // boxOfficeList 작업
         Callable<HashMap<String, MovieDTO>> boxOfficeTask = new Callable<HashMap<String, MovieDTO>>() {
             @Override
@@ -52,36 +50,34 @@ public class InsertMovieAction implements Action {
             }
         };
 
-        // 작업이 성공할 때까지 반복
-        while (boxOfficeList == null || movieList == null) {
+        try {
+            // 각각 3초 안에 작업 실행
+            Future<HashMap<String, MovieDTO>> boxOfficeFuture = executor.submit(boxOfficeTask);
+            Future<List<MovieDTO>> recommendFuture = executor.submit(recommendTask);
+
+            boxOfficeList = boxOfficeFuture.get(3, TimeUnit.SECONDS);  // 3초 제한
+            movieList = recommendFuture.get(3, TimeUnit.SECONDS);      // 3초 제한
+
+        } catch (TimeoutException e) {
+            // 3초가 넘었을 때 처리
+            System.out.println("작업이 3초를 초과했습니다. 다시 시도합니다.");
             try {
-                Future<HashMap<String, MovieDTO>> boxOfficeFuture = executor.submit(boxOfficeTask);
-                Future<List<MovieDTO>> recommendFuture = executor.submit(recommendTask);
-
-                // 3초 안에 작업 완료 대기
-                boxOfficeList = boxOfficeFuture.get(TIMEOUT_SECONDS, TimeUnit.SECONDS);
-                movieList = recommendFuture.get(TIMEOUT_SECONDS, TimeUnit.SECONDS);
-
-            } catch (TimeoutException e) {
-                // 작업이 3초를 초과했을 때
-                System.out.println("작업이 3초를 초과했습니다. 다시 시도합니다.");
-            } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
-                break; // 예외가 발생한 경우 반복 중지
+                // boxOffice와 recommendList 모두 재실행
+                boxOfficeList = kobisJson.getBoxOffice();
+                movieList = kobisJson.getRecommendList();
+            } catch (ParseException | IOException ex) {
+                ex.printStackTrace();
             }
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        } finally {
+            executor.shutdown();  // ExecutorService 종료
         }
-
-        // ExecutorService 종료
-        executor.shutdown();
 
         // MovieDAO 작업
         MovieDAO mdao = new MovieDAO();
-        if (boxOfficeList != null) {
-            mdao.insertMovieDB(boxOfficeList);
-        }
-        if (movieList != null) {
-            mdao.insertMovieDB(movieList);
-        }
+        mdao.insertMovieDB(boxOfficeList);
+        mdao.insertMovieDB(movieList);
 
         forward.setRedirect(true);
         forward.setPath("/test.jsp");
