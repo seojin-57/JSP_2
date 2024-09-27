@@ -1,5 +1,7 @@
 package com.reviewfinder.movie.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -26,8 +28,28 @@ public class MovieDAO {
 		return result;
 	}
 
-	public void insertMovieDB() {
-		
+	public void insertMovieDB(HashMap<String, MovieDTO> moviemap) {
+		List<MovieDTO> movie = new ArrayList<MovieDTO>();
+		for(int i=1;i<=moviemap.size();i++) {
+			movie.add(moviemap.get(""+i+""));
+		}
+		for(int i=0;i<movie.size();i++) {
+			if(session.insert("Dbtest.insertMovieDB",movie.get(i))==1) {
+				System.out.println("db저장 성공");
+			}else {
+				System.out.println("실패");
+			}
+		}
+	}
+	// 오버로딩
+	public void insertMovieDB(List<MovieDTO> movie) {
+		for(int i=0;i<movie.size();i++) {
+			if(session.insert("Dbtest.insertMovieDB",movie.get(i))==1) {
+				System.out.println("db저장 성공");
+			}else {
+				System.out.println("실패");
+			}
+		}
 	}
 	
 	
