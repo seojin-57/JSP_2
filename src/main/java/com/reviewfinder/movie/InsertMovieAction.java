@@ -78,7 +78,7 @@ public class InsertMovieAction implements Action{
         MovieDAO mdao = new MovieDAO();
         mdao.insertMovieDB(boxOfficeList);
         mdao.insertMovieDB(movieList);
-
+        
         forward.setRedirect(true);
         forward.setPath("/test.jsp");
 

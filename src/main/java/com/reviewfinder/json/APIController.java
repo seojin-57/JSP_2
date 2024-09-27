@@ -27,6 +27,9 @@ public class APIController {
 		conn.setRequestProperty("Content-type", "application/json");
 		// 상태 코드 출력
 		 System.out.println("Response code: " + conn.getResponseCode());
+		 if(conn.getResponseCode()!=200) {
+			return callAPI(url_key, var_data);
+		 }
 		BufferedReader rd;
 		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
