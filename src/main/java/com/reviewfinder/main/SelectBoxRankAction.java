@@ -6,15 +6,12 @@ import com.reviewfinder.action.ActionForward;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class MoveMainAction implements Action {
+public class SelectBoxRankAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
 		
-		System.out.println("main");
-		
-		forward.setRedirect(true);
-		forward.setPath("/main/main.jsp");
+		System.out.println("select");
 		
 		return forward;
 	}

@@ -27,9 +27,11 @@ public class MainFrontController extends HttpServlet{
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
 		
-		if(requestURI.equals("/main.ma")) {
+		if(requestURI.equals("/main.ma")) { // 메인 홈페이지로 요청
 			// path 추가
 			forward = new MoveMainAction().execute(req, resp);
+		} else if(requestURI.equals("/mainBoxRank.ma")) { // 박스오피스 랭크 요청
+			forward = new SelectBoxRankAction().execute(req, resp);
 		}
 		
 		// 한꺼번에 보내기

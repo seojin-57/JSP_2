@@ -36,7 +36,7 @@ public class InsertMovieAction implements Action{
 		mdao.insertMovieDB(movieList);
 		
 		forward.setRedirect(true);
-		forward.setPath("/main/main.jsp");
+		forward.setPath("/main.ma");
 		
 		return forward;
 	}
